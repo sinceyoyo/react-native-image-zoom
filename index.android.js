@@ -1,5 +1,6 @@
 
-import React,{Component,PropTypes} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import {
   requireNativeComponent,
   View,
@@ -19,11 +20,11 @@ export default class ImageViewZoom extends Component {
       PropTypes.number,
     ]),
     scale: PropTypes.number,
-    scaleType: PropTypes.oneOf(["center","centerCrop","centerInside","fitCenter","fitStart","fitEnd","fitXY","matrix"]),
-    onTap : PropTypes.func,
-    onLoad : PropTypes.func,
-    onScaleChange : PropTypes.func,
-    onMatrixChange : PropTypes.func,
+    scaleType: PropTypes.oneOf(["center", "centerCrop", "centerInside", "fitCenter", "fitStart", "fitEnd", "fitXY", "matrix"]),
+    onTap: PropTypes.func,
+    onLoad: PropTypes.func,
+    onScaleChange: PropTypes.func,
+    onMatrixChange: PropTypes.func,
   };
 
   constructor(props) {
@@ -32,9 +33,9 @@ export default class ImageViewZoom extends Component {
 
   render() {
     const source = resolveAssetSource(this.props.source);
-    if (source && source.uri){
+    if (source && source.uri) {
 
-      const props = {...this.props, src: source };
+      const props = { ...this.props, src: source };
       return <ZoomImage {...props} />;
     }
     return null
